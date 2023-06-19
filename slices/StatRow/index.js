@@ -6,6 +6,7 @@
 const StatRow = ({ slice }) => {
   return (
     <section
+     className="h-[1000px]"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

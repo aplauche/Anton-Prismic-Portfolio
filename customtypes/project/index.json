@@ -1,21 +1,30 @@
 {
-  "id": "page",
-  "label": "Page",
+  "id": "project",
+  "label": "Project",
   "format": "page",
   "repeatable": true,
   "status": true,
   "json": {
     "Main": {
+      "title": {
+        "type": "Text",
+        "config": { "label": "Title", "placeholder": "" }
+      },
       "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "featured_image": {
+        "type": "Image",
+        "config": {
+          "label": "Featured Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "featured_project": { "type": "SharedSlice" },
             "stat_row": { "type": "SharedSlice" },
-            "vertical_cards": { "type": "SharedSlice" },
-            "hero": { "type": "SharedSlice" },
             "rich_text": { "type": "SharedSlice" }
           }
         }

@@ -12,17 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
-        "title": {
-          "type": "Text",
-          "config": { "label": "Title", "placeholder": "" }
-        },
-        "description": {
-          "type": "Text",
-          "config": { "label": "Description", "placeholder": "" }
-        },
-        "image": {
-          "type": "Image",
-          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        "project": {
+          "type": "Link",
+          "config": {
+            "label": "Project",
+            "select": "document",
+            "customtypes": ["project"]
+          }
         }
       },
       "items": {}

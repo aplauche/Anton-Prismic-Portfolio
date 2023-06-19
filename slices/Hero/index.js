@@ -1,3 +1,5 @@
+import { PrismicNextImage } from "@prismicio/next";
+
 /**
  * @typedef {import("@prismicio/client").Content.HeroSlice} HeroSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<HeroSlice>} HeroProps
@@ -9,7 +11,7 @@ const Hero = ({ slice }) => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      Placeholder component for hero (variation: {slice.variation}) Slices
+      <PrismicNextImage priority className="w-full max-h-[800px] object-cover" field={slice.primary.hero_image} />
     </section>
   );
 };

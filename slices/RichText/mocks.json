@@ -2,27 +2,19 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
-		"items": [
-			{
-				"__TYPE__": "GroupItemContent",
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
 				"value": [
-					[
-						"content",
-						{
-							"__TYPE__": "StructuredTextContent",
-							"value": [
-								{
-									"type": "paragraph",
-									"content": {
-										"text": "Sint ea non non irure duis velit qui est eu labore cupidatat ipsum."
-									}
-								}
-							]
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation tempor tempor proident ut consequat enim fugiat aliqua. Pariatur officia consequat officia Lorem exercitation tempor non laborum consectetur irure ex consectetur eu id. Eu sit est in do exercitation."
 						}
-					]
+					}
 				]
 			}
-		]
+		},
+		"items": []
 	}
 ]

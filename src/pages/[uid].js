@@ -10,7 +10,26 @@ export default function Page({ page, navigation, settings }) {
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", params.uid);
+  const page = await client.getByUID("page", params.uid, {
+    graphQuery: `{
+        page {
+          slices {
+            ...on featured_project {
+              variation {
+                ...on default {
+                  primary {
+                    ...on project {
+                      ...projectFields
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }`
+    });
+
 
   return {
     props: { page },
