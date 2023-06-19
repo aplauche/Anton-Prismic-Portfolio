@@ -1,0 +1,27 @@
+{
+  "id": "stat_row",
+  "type": "SharedSlice",
+  "name": "StatRow",
+  "description": "StatRow",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "stat": {
+          "type": "Text",
+          "config": { "label": "Stat", "placeholder": "" }
+        },
+        "caption": {
+          "type": "Text",
+          "config": { "label": "Caption", "placeholder": "" }
+        }
+      }
+    }
+  ]
+}
