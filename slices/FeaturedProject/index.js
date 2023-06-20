@@ -1,4 +1,6 @@
+import { createClient } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import { useEffect, useState } from "react";
 
 /**
  * @typedef {import("@prismicio/client").Content.FeaturedProjectSlice} FeaturedProjectSlice
@@ -7,7 +9,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
  */
 const FeaturedProject = ({ slice }) => {
 
-   console.log(slice)
+  
   
   return (
     <section

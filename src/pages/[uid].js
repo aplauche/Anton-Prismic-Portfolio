@@ -4,6 +4,7 @@ import { createClient, linkResolver } from 'prismicio'
 import { components } from '../../slices'
 
 export default function Page({ page, navigation, settings }) {
+  console.log(page)
   return <SliceZone slices={page.data.slices} components={components} />;
 }
 
@@ -11,25 +12,25 @@ export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
   const page = await client.getByUID("page", params.uid, {
-    graphQuery: `{
-        page {
-          slices {
-            ...on featured_project {
-              variation {
-                ...on default {
-                  primary {
-                    ...on project {
-                      ...projectFields
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }`
+    // graphQuery: `{
+    //     page {
+    //       ...pageFields
+    //       slices {
+    //         ...on featured_project {
+    //           variation {
+    //             ...on default {
+    //               primary {
+    //                 project {
+    //                   ...projectFields
+    //                 }
+    //               }
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }`
     });
-
 
   return {
     props: { page },
