@@ -23,7 +23,24 @@ export type CategoriesDocument<Lang extends string = string> =
     Lang
   >;
 /** Content for Menu documents */
-type MenuDocumentData = Record<string, never>;
+interface MenuDocumentData {
+  /**
+   * Slice Zone field in *Menu*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<MenuDocumentDataSlicesSlice>;
+}
+/**
+ * Slice for *Menu → Slice Zone*
+ *
+ */
+type MenuDocumentDataSlicesSlice = MenuItemSlice;
 /**
  * Menu document from Prismic
  *
@@ -361,6 +378,62 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 /**
+ * Primary content in MenuItem → Primary
+ *
+ */
+interface MenuItemSliceDefaultPrimary {
+  /**
+   * Text field in *MenuItem → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_item.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  text: prismic.KeyTextField;
+  /**
+   * Link field in *MenuItem → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: menu_item.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for MenuItem Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MenuItemSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MenuItemSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *MenuItem*
+ *
+ */
+type MenuItemSliceVariation = MenuItemSliceDefault;
+/**
+ * MenuItem Shared Slice
+ *
+ * - **API ID**: `menu_item`
+ * - **Description**: `MenuItem`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type MenuItemSlice = prismic.SharedSlice<
+  "menu_item",
+  MenuItemSliceVariation
+>;
+/**
  * Primary content in RichText → Primary
  *
  */
@@ -556,6 +629,7 @@ declare module "@prismicio/client" {
       CategoriesDocumentData,
       CategoriesDocument,
       MenuDocumentData,
+      MenuDocumentDataSlicesSlice,
       MenuDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -575,6 +649,10 @@ declare module "@prismicio/client" {
       HeroSliceDefault,
       HeroSliceVariation,
       HeroSlice,
+      MenuItemSliceDefaultPrimary,
+      MenuItemSliceDefault,
+      MenuItemSliceVariation,
+      MenuItemSlice,
       RichTextSliceDefaultPrimary,
       RichTextSliceDefault,
       RichTextSliceVariation,

@@ -4,5 +4,14 @@
   "format": "custom",
   "repeatable": true,
   "status": true,
-  "json": { "Main": { "uid": { "config": { "label": "UID" }, "type": "UID" } } }
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": { "choices": { "menu_item": { "type": "SharedSlice" } } }
+      }
+    }
+  }
 }

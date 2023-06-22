@@ -11,16 +11,58 @@
 						"stat",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "sink",
-							"type": "Text"
+							"type": "Text",
+							"value": "20%"
 						}
 					],
 					[
 						"caption",
 						{
 							"__TYPE__": "FieldContent",
-							"value": "division",
-							"type": "Text"
+							"type": "Text",
+							"value": "Stat Caption"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"stat",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "20%"
+						}
+					],
+					[
+						"caption",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Stat Caption"
+						}
+					]
+				]
+			},
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"stat",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "20%"
+						}
+					],
+					[
+						"caption",
+						{
+							"__TYPE__": "FieldContent",
+							"type": "Text",
+							"value": "Stat Caption"
 						}
 					]
 				]
