@@ -322,6 +322,16 @@ interface HeroSliceDefaultPrimary {
    *
    */
   hero_image: prismic.ImageField<never>;
+  /**
+   * Hero Title field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.hero_title
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  hero_title: prismic.KeyTextField;
 }
 /**
  * Default variation for Hero Slice

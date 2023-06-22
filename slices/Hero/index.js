@@ -12,6 +12,7 @@ const Hero = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       <PrismicNextImage priority className="w-full max-h-[800px] object-cover" field={slice.primary.hero_image} />
+      <h1>{slice.primary.hero_title}</h1>
     </section>
   );
 };

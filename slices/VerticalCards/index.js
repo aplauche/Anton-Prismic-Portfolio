@@ -14,7 +14,7 @@ const VerticalCards = ({ slice }) => {
     >
       <div>
         <div className="sticky top-[75px]">
-          <h2>{slice.primary.title}</h2>
+          <h2 className="font-bold text-4xl mb-4">{slice.primary.title}</h2>
           <CustomRichText field={slice.primary.description} />
         </div>
       </div>
