@@ -1,17 +1,27 @@
+import Layout from '@/components/Layout'
+import { Navigation } from '@/components/Navigation'
 import * as prismicH from '@prismicio/helpers'
 import { SliceZone } from '@prismicio/react'
 import { createClient, linkResolver } from 'prismicio'
 import { components } from '../../slices'
 
 export default function Page({ page, navigation, settings }) {
-  console.log(page)
-  return <SliceZone slices={page.data.slices} components={components} />;
+  return <>
+      <Layout navigation={navigation}>
+        <SliceZone slices={page.data.slices} components={components} />
+      </Layout>
+    </>
 }
 
 export async function getStaticProps({ params, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("page", params.uid, {
+  const [navigation, page] = await Promise.all([
+    client.getByUID('menu', 'main'),
+    client.getByUID('page', params.uid),
+  ])
+
+  // const page = await client.getByUID("page", params.uid, {
     // graphQuery: `{
     //     page {
     //       ...pageFields
@@ -30,10 +40,10 @@ export async function getStaticProps({ params, previewData }) {
     //       }
     //     }
     //   }`
-    });
+    //});
 
   return {
-    props: { page },
+    props: { page, navigation },
   };
 }
 

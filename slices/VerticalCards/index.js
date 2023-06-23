@@ -8,12 +8,12 @@ import CustomRichText from "@/components/CustomRichText";
 const VerticalCards = ({ slice }) => {
   return (
     <section
-      className="py-16 max-w-[1160px] mx-auto grid grid-cols-2 gap-16 relative"
+      className="py-16 container grid grid-cols-2 gap-16 relative"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
       <div>
-        <div className="sticky top-[75px]">
+        <div className="sticky top-[100px]">
           <h2 className="font-bold text-4xl mb-4">{slice.primary.title}</h2>
           <CustomRichText field={slice.primary.description} />
         </div>
