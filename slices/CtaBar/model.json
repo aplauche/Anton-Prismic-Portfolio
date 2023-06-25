@@ -1,0 +1,36 @@
+{
+  "id": "cta_bar",
+  "type": "SharedSlice",
+  "name": "CtaBar",
+  "description": "CtaBar",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "headline": {
+          "type": "Text",
+          "config": { "label": "Headline", "placeholder": "" }
+        },
+        "description": {
+          "type": "Text",
+          "config": { "label": "Description", "placeholder": "" }
+        }
+      },
+      "items": {
+        "button_text": {
+          "type": "Text",
+          "config": { "label": "Button Text", "placeholder": "" }
+        },
+        "button_url": {
+          "type": "Link",
+          "config": { "label": "Button URL", "placeholder": "", "select": null }
+        }
+      }
+    }
+  ]
+}

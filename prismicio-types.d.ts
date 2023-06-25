@@ -108,7 +108,8 @@ type PageDocumentDataSlicesSlice =
   | StatRowSlice
   | VerticalCardsSlice
   | HeroSlice
-  | RichTextSlice;
+  | RichTextSlice
+  | CtaBarSlice;
 /**
  * Page document from Prismic
  *
@@ -278,6 +279,85 @@ export type AllDocumentTypes =
   | PageDocument
   | PostDocument
   | ProjectDocument;
+/**
+ * Primary content in CtaBar → Primary
+ *
+ */
+interface CtaBarSliceDefaultPrimary {
+  /**
+   * Headline field in *CtaBar → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_bar.primary.headline
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  headline: prismic.KeyTextField;
+  /**
+   * Description field in *CtaBar → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_bar.primary.description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  description: prismic.KeyTextField;
+}
+/**
+ * Item in CtaBar → Items
+ *
+ */
+export interface CtaBarSliceDefaultItem {
+  /**
+   * Button Text field in *CtaBar → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_bar.items[].button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  button_text: prismic.KeyTextField;
+  /**
+   * Button URL field in *CtaBar → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_bar.items[].button_url
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  button_url: prismic.LinkField;
+}
+/**
+ * Default variation for CtaBar Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CtaBarSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CtaBarSliceDefaultPrimary>,
+  Simplify<CtaBarSliceDefaultItem>
+>;
+/**
+ * Slice variation for *CtaBar*
+ *
+ */
+type CtaBarSliceVariation = CtaBarSliceDefault;
+/**
+ * CtaBar Shared Slice
+ *
+ * - **API ID**: `cta_bar`
+ * - **Description**: `CtaBar`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CtaBarSlice = prismic.SharedSlice<"cta_bar", CtaBarSliceVariation>;
 /**
  * Primary content in FeaturedProject → Primary
  *
@@ -641,6 +721,11 @@ declare module "@prismicio/client" {
       ProjectDocumentDataSlicesSlice,
       ProjectDocument,
       AllDocumentTypes,
+      CtaBarSliceDefaultPrimary,
+      CtaBarSliceDefaultItem,
+      CtaBarSliceDefault,
+      CtaBarSliceVariation,
+      CtaBarSlice,
       FeaturedProjectSliceDefaultPrimary,
       FeaturedProjectSliceDefault,
       FeaturedProjectSliceVariation,

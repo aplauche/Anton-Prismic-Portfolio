@@ -50,6 +50,7 @@ export async function getStaticProps({ params, previewData }) {
 export async function getStaticPaths() {
   const client = createClient()
   const pages = await client.getAllByType('page')
+
   return {
     paths: pages.map(page => prismicH.asLink(page, linkResolver)),
     fallback: false

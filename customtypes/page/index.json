@@ -16,7 +16,8 @@
             "stat_row": { "type": "SharedSlice" },
             "vertical_cards": { "type": "SharedSlice" },
             "hero": { "type": "SharedSlice" },
-            "rich_text": { "type": "SharedSlice" }
+            "rich_text": { "type": "SharedSlice" },
+            "cta_bar": { "type": "SharedSlice" }
           }
         }
       }
